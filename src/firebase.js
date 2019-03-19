@@ -1,5 +1,4 @@
-const firebase = require('firebase');
-
+const firebase = require('firebase')
 
 const config = {
     apiKey: "AIzaSyBnUViRpiWzRuPxLXhBolDIzKHzlXF9gaY",
@@ -8,7 +7,11 @@ const config = {
     projectId: "homework-app-b07ba",
     storageBucket: "",
     messagingSenderId: "661014196508"
-};
-const app = firebase.initializeApp(config);
+}
 
-// export const db = app.database();
+const app = firebase.initializeApp(config)
+
+
+const db = app.database()
+
+export default db

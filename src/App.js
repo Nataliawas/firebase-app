@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Form from './UserForm'
+import UserForm from './UserForm'
+import UserTable from './UserTable'
+
 
 class App extends Component {
 
@@ -7,8 +9,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Form />
-
+        <UserForm />
+        <UserTable />
       </div>
     );
   }

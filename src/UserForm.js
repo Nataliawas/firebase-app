@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Button, Form } from 'semantic-ui-react'
+import { db } from './firebase'
 
 class UserForm extends React.Component {
 
@@ -34,8 +35,8 @@ class UserForm extends React.Component {
           <Form.Field>
             <label>Age</label>
             <input placeholder='Age' name="age" type="number" onChange={this.handleChange} />
-          </Form.Field>
-          <Button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleSubmit}>Submit
+          </Form.Field> 
+            <Button className="btn waves-effect waves-light btn-floating pulse" type="submit" name="action" onClick={this.handleSubmit}>
     <i className="material-icons right">send</i></Button>
         </Form >
       </Container>
