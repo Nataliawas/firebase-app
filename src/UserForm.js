@@ -15,7 +15,7 @@ class UserForm extends React.Component {
   }
 
   handleSubmit = event => {
-    db.ref('users/' + Math.random()).set({
+    db.ref(`users/ + k-${Math.random()}`).set({
       username: event.name,
       email: event.email,
       age: event.age
