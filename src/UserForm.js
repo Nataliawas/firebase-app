@@ -15,11 +15,15 @@ class UserForm extends React.Component {
   }
 
   handleSubmit = event => {
-    db.ref(`users/ + k-${Math.random()}`).set({
+    function uuid() =Math.random()
+
+    const uid = uuid()
+
+    db.ref('users/' + uid).set({
       username: event.name,
       email: event.email,
       age: event.age
-    })
+    });
   }
 
 
