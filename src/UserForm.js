@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Button, Form } from 'semantic-ui-react'
-import db from './firebase'
+import { db } from './firebase'
 
 class UserForm extends React.Component {
 
@@ -14,20 +14,18 @@ class UserForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  handleSubmit = event => {
+  handleSubmit = () => {
     function uuid() {
-      return new Date().getTime().toString();
+      return Math.floor(Math.random() * 100000000)
     }
 
     const uid = uuid()
-
-    db.ref('users/' + uid).push({
-      firstName: event.firstName,
-      lastName: event.lastName,
-      age: event.age
-    })
+      db.ref('users/' + uid).push({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        age: this.state.age
+      })
   }
-
 
   render() {
     return (
@@ -36,15 +34,15 @@ class UserForm extends React.Component {
         <Form>
           <Form.Field>
             <label>First Name</label>
-            <input placeholder='First Name' name="firstName" type="text" onChange={this.handleChange} />
+            <input placeholder='First Name' name="firstName" type="text" required onChange={this.handleChange} />
           </Form.Field>
           <Form.Field>
             <label>Last Name</label>
-            <input placeholder='Last Name' name="lastName" type="text" onChange={this.handleChange} />
+            <input placeholder='Last Name' name="lastName" type="text" required onChange={this.handleChange} />
           </Form.Field>
           <Form.Field>
             <label>Age</label>
-            <input placeholder='Age' name="age" type="number" onChange={this.handleChange} />
+            <input placeholder='Age' name="age" type="number" required onChange={this.handleChange} />
           </Form.Field>
           <Button className="btn waves-effect waves-light btn-floating pulse" type="submit" name="action" onClick={this.handleSubmit}>
             <i className="material-icons right">send</i></Button>

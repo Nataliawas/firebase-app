@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Container, Label, Table } from 'semantic-ui-react'
 
 class UserTable extends React.Component {
 
