@@ -11,12 +11,18 @@ class UserTable extends React.Component {
         db.ref('users/').on("value", snapshot => {
           const users = []
           Object.entries(snapshot.val()).forEach(elem => {
+
+            const id = Object.keys(elem[1])[0];
+
+            console.log(elem);
+            
             const user = {
-              id: elem[0],
-              ...elem[1]
+              id: id,
+              ...elem[1][id]
             }
             users.push(user)
           })
+          console.log(users);
           this.setState({ users })
         })
       }
